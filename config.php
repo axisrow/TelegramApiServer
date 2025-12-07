@@ -8,7 +8,7 @@ use function Amp\Socket\SocketAddress\fromString;
 $settings = [
     'server' => [
         'address' => (string)getenv('SERVER_ADDRESS'),
-        'port' => (int)getenv('SERVER_PORT'),
+        'port' => (int)(getenv('PORT') ?: getenv('SERVER_PORT') ?: 9503),
         'real_ip_header' => (string)(getenv('REAL_IP_HEADER') ?? ''),
     ],
     'error' => [

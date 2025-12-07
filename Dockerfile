@@ -10,6 +10,10 @@ RUN echo 1.0.0 > /tas_version
 
 RUN echo -e "\nopcache.jit=off" >> $PHP_INI_DIR/php.ini
 
+WORKDIR /app
+COPY . /app
+RUN composer install --no-dev --optimize-autoloader
+
 EXPOSE 9503
 
 ENV UV_USE_IO_URING=0
